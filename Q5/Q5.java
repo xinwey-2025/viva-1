@@ -1,57 +1,38 @@
 import java.util.Scanner;
-public class Q5 {
+
+public class Q5Alt {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter Original Message : ");
+        System.out.print("Enter Original Message: ");
         String message = input.nextLine();
+        System.out.println("Encoded Message");
 
-        //print character to ascii code
-        System.out.println("Encoded Message :");
+        int c;
+        String binaryString;
+        int encoded;
+
         for (int i = 0; i < message.length(); i++) {
-            char ch = message.charAt(i);// find the position of the char
-            int ascii = ch; //variable char to int : means char to ascii num
-            String binary = "";
+            // process one character at a time
+            // c holds the ASCII decimal value of this character
+            c = message.charAt(i);
 
-            while (ascii > 0) {
-                int remainder = ascii % 2;
-                binary = remainder + binary;
-                ascii = ascii / 2;
-            }
-            while (binary.length() < 8) {
-                binary = "0" + binary;
-            }
+            // invert current character using bitwise NOT operator
+            c = ~c;
 
-            //String binary = String.format("%8s", Integer.toBinaryString(ascii)).replace(' ', '0');
-            //print ascii code to 8 bit binary,need to use String.format, (.replace is to replace the space into '0')
+            // convert to binary representation string
+            binaryString = Integer.toBinaryString(c);
 
-            String flipped = ""; // used to store the flipped binary
-            for (char bit : binary.toCharArray()) {
-             /*.toCharArray convert the binary string into a character array like{'0','1','0','0','1','0','0','0'}
-            So the for loop can go one by one*/
-                if (bit == '0') {
-                    flipped += '1'; //flipped=flipped+'1'
-                } else {
-                    flipped += '0';
-                }
-            }
-            int flippedDecimal = 0;
-            int power = 1; // represents 2^0
+            // since converted string is 32 bits long (length of int)
+            // only extract the last 8 bits for use
+            binaryString = binaryString.substring(32 - 8);
 
-            for (int j = flipped.length() - 1; j >= 0; j--) {
-                char bit = flipped.charAt(j);
+            // convert back to decimal
+            encoded = Integer.parseInt(binaryString, 2);
 
-                if (bit == '1') {
-                    flippedDecimal += power; // add the value of that bit
-                }
-
-                power *= 2; // move to next power of 2 (1,2,4,8,16,...)
-            }
-
-            //int flippedDecimal = Integer.parseInt(flipped, 2);
-            // used to convert binary to decimal, (flipped,2)= (binary,base 2)
-            System.out.print(flippedDecimal + " ");
-
-
+            // decoding ends; print decoded string
+            System.out.print(encoded + " ");
         }
+
+        System.out.println();
     }
 }
