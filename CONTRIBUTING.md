@@ -13,6 +13,7 @@ A (very informal, and) general guide for contributing to this project.
 5. Add changes to staging area with `git add`. (Hint: `git status` is very helpful)
 6. Commit changes with `git commit`.
 7. Push your changes with `git push origin <branchname>`.
+8. Go to your forked repo page, open a pull request, fill in neccessary information and detail.
 
 Before pushing changes, please make sure that:
 1. Your forked repo is up to date. Search for "sync fork" button on your forked GitHub repo page.
