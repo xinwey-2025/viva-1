@@ -26,56 +26,58 @@ public class Q1 {
             //System.out.print("Please enter number of previous late returns: ");
             int lateCount = input.nextInt();
 
-            if (days >= 0) { // ensure days always > 0
-                switch (bookType) {
-                    case 'R':
-                        price = 100.0;
-                        break;
-                    case 'G':
-                        if (days <= 7) {
-                            // b4 7 day
-                            price = days * 0.50;
+            if (days < 0 ||
+                    (bookType != 'R' && bookType != 'G' && bookType != 'M' && bookType != 'C' && bookType != 'T') ||
+                    (category != 'T' && category != 'S'))
+            {
+                System.out.println("Invalid input. Re-enter...\n");
+                i--;
+                continue;
+            }
+            switch (bookType) {
+                case 'R':
+                    price = 100.0;
+                    break;
+                case 'G':
+                    if (days <= 7) {
+                        // b4 7 day
+                        price = days * 0.50;
 
-                        } else if (days <= 30) {
-                            // calculate b4 7 day, then calculate between 7 day and 30 day
-                            price = (7 * 0.50) + ((days - 7) * 1.00);
+                    } else if (days <= 30) {
+                        // calculate b4 7 day, then calculate between 7 day and 30 day
+                        price = (7 * 0.50) + ((days - 7) * 1.00);
 
-                        } else {
-                            // calculate b4 7 day, calculate between 7 day and 30 day, then calculate after 30 day
-                            price = (7 * 0.50) + (23 * 1.00) + ((days - 30) * 2.00);
-                        }
-                        break;
-                    case 'C':
-                        double sum = 0 ;
-                        for (int q = 1; q <= days; q++) {
-                            if(q <= 10){
-                                sum = sum + 2.0;
-                            }
-                            else {
-                                sum = sum + 5.0;
-                            }
-                        }
-                        price = sum;
-                        break;
-                    case 'M':
-                        fineRate = 0.20;
-                        price = ((double) days *fineRate)+penalty;
-                        break;
-                    case 'T':
-                        if (days <= 15) {
-                            fineRate = 10.0;
+                    } else {
+                        // calculate b4 7 day, calculate between 7 day and 30 day, then calculate after 30 day
+                        price = (7 * 0.50) + (23 * 1.00) + ((days - 30) * 2.00);
+                    }
+                    break;
+                case 'C':
+                    double sum = 0 ;
+                    for (int q = 1; q <= days; q++) {
+                        if(q <= 10){
+                            sum = sum + 2.0;
                         }
                         else {
-                            fineRate = 10.0;
-                            penalty = 200.0;
+                            sum = sum + 5.0;
                         }
-                        price = ((double) days *fineRate)+penalty;
-                        break;
-                    default:
-                        System.out.print("Invalid day type.");
-                        i--;
-                        continue;
-
+                    }
+                    price = sum;
+                    break;
+                case 'M':
+                    fineRate = 0.20;
+                    price = ((double) days *fineRate)+penalty;
+                    break;
+                default:
+                    if (days <= 15) {
+                        fineRate = 10.0;
+                    }
+                    else {
+                        fineRate = 10.0;
+                        penalty = 200.0;
+                    }
+                    price = ((double) days *fineRate)+penalty;
+                    break;
                 }
 
                 if (days > 60){
@@ -99,12 +101,6 @@ public class Q1 {
                 // Calculate the total price including discount and extra penalty
                 totalPrice = (price * discount) + xPenalty;
 
-            }
-            else {
-                System.out.println("Invalid Days or Book Type. Re-enter...\n");
-                i--;
-                continue;
-            }
 
             System.out.println("--- Case " + i + " --- ");
             System.out.printf("Total Fine: RM %.2f\n", totalPrice);
