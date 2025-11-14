@@ -65,7 +65,7 @@ public class Q6 {
                 continue;
             }
 
-            // Declare needed variable
+            // Declare found egg and cursed chest
             boolean foundEgg = false;
             boolean cursed = false;
 
@@ -100,8 +100,8 @@ public class Q6 {
                     break;
                 }
 
+            } else {
                 // Find the min distance and the nearest egg
-            }else{
                 int minDistance = 11;
                 int nearestEgg = -1;
                 for (int i = 0; i < eggs.length; i++) {
@@ -128,12 +128,13 @@ public class Q6 {
                         System.out.println("Hint: Try a higher chest number.");
                         System.out.println("No egg here, keep searching!");
                     }
-                    // Action if the egg is far
                 }else{
+                    // Action if the egg is far
                     System.out.println("Cold! You're far from any dragon egg!");
                     System.out.println("No egg here, keep searching!");
                 }
             }
+
             // Print attempts left
             attempt--;
             System.out.println("Attempts left: " + attempt);
