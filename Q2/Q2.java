@@ -44,12 +44,12 @@ public class Q2 {
              */
 
             if (day.equals("sun") ||
-                    day.equals("mon") ||
-                    day.equals("tue") ||
-                    day.equals("wed") ||
-                    day.equals("thu") ||
-                    day.equals("fri") ||
-                    day.equals("sat")) {
+                day.equals("mon") ||
+                day.equals("tue") ||
+                day.equals("wed") ||
+                day.equals("thu") ||
+                day.equals("fri") ||
+                day.equals("sat")) {
                 break;
             }
 
