@@ -47,11 +47,11 @@ Lastly,the encoded message is printed out.
 
 Sample 1
 
-![Sample input and output 1](sample-cases/Sample%201-input%20&%20output.png)
+![Sample input and output 1](Sample-cases/Sample%201-input%20&%20output.png)
 
 Sample 2
 
-![Sample input and output 2](sample-cases/Sample%202-input%20&%20output.png)
+![Sample input and output 2](Sample-cases/Sample%202-input%20&%20output.png)
 
 ### Source code
 See [Q5.java](Q5.java)
