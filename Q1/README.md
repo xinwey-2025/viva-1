@@ -116,13 +116,11 @@ Extra penalties `xPenalty` is calculated after `price`
 ## Sample input and output
 
 ### Sample 1 
-![Sample input & output 1](sample_input_output_1.png)
+![Sample input & output 1](sample-input-ouput-1.png)
 
 ### Sample 2
-![Sample input & output 2](sample_input_output_2.png)
+![Sample input & output 2](sample-input-output-2.png)
 
-### Sample 3
-![Sample input & output 3](sample_input_output_3.png)
 ---
 
 ## Source code 
