@@ -5,12 +5,13 @@ public class Q1 {
         System.out.println("****Encik Hafiz's Library Fine System****");
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter number or books returning: ");
+        // Identify loops
         int numBooks = input.nextInt();
 
         for (int i = 1; i <= numBooks; i++) {
             /* initial declaration */
-            double price = 0.0;
-            double fineRate = 0.0;
+            double price;
+            double fineRate;
             double penalty = 0.0; //  simple penalty
             double totalPrice = 0.0;
             double discount = 1.0; // for those not available for discount will time 1.0
@@ -66,7 +67,7 @@ public class Q1 {
                     break;
                 case 'M':
                     fineRate = 0.20;
-                    price = ((double) days *fineRate)+penalty;
+                    price = ((double) days * fineRate);
                     break;
                 default:
                     if (days <= 15) {
@@ -76,7 +77,7 @@ public class Q1 {
                         fineRate = 10.0;
                         penalty = 200.0;
                     }
-                    price = ((double) days *fineRate)+penalty;
+                    price = ((double) days * fineRate) + penalty;
                     break;
                 }
 
@@ -91,10 +92,10 @@ public class Q1 {
 
                 // Staff status 'T' is checked before Good Borrower status
                 if (category == 'T') {
-                    System.out.println("Good Borrower Reward! 50% DISCOUNTED!!");
+                    System.out.println("You're Staff! 20% DISCOUNTED!!");
                     discount = 0.80;
                 } else if (lateCount == 0 && days <= 3) {
-                    System.out.println("You're Staff! 20% DISCOUNTED!!");
+                    System.out.println("Good Borrower Reward! 50% DISCOUNTED!!");
                     discount = 0.50;
                 }
 
