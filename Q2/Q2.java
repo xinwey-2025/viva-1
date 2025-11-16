@@ -9,7 +9,7 @@ public class Q2 {
         double price;       // current price input
         String day;         // day in text - Sunday, Monday etc
         int hour;           // time hour in 24-hour format
-        char response;    // response for the question below - y or n
+        char response;      // response for the question below - y or n
         boolean isMember;   // is this customer a member?
 
 
@@ -79,7 +79,6 @@ public class Q2 {
             System.out.println("Invalid input. Please re-enter.");
         }
         isMember = response == 'y';  // if y then isMember equals true, false if otherwise
-
 
         /* end of input, print total amount */
         System.out.println("\n-------- Kopi-Satu Receipt --------");
